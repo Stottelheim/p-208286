@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Header } from "@/components/layout/Header";
 import { MainLayout } from "@/components/layout/MainLayout";
@@ -14,7 +15,7 @@ const Index = () => {
         <Header />
         <MainLayout>
           <div
-            className="rounded border text-[#0771D0] text-sm font-medium cursor-pointer mx-0 my-5 px-5 py-3 border-solid border-[#0771D0] hover:bg-[#0771D0] hover:text-white transition-colors"
+            className="rounded border text-[#0771D0] text-sm font-medium cursor-pointer mx-0 my-5 px-3 py-2 border-solid border-[#0771D0] hover:bg-[#0771D0] hover:text-white transition-colors w-fit"
             onClick={() => window.history.back()}
           >
             Zurück zum Shop
@@ -32,3 +33,4 @@ const Index = () => {
 };
 
 export default Index;
+
