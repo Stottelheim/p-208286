@@ -15,17 +15,15 @@ const Index = () => {
         <Header />
         <MainLayout>
           <div className="mt-5 max-w-[50%] mx-auto max-md:max-w-[70%] max-sm:max-w-full">
-            <div className="flex justify-between items-center mb-5">
-              <div
-                className="rounded border text-[#0771D0] text-sm font-medium cursor-pointer px-3 py-2 border-solid border-[#0771D0] hover:bg-[#0771D0] hover:text-white transition-colors w-fit"
-                onClick={() => window.history.back()}
-              >
-                Zurück zum Shop
-              </div>
-              <h1 className="text-[#2D2D2D] text-2xl">
-                Bitte bewerte den Shop Computeruniverse.de
-              </h1>
+            <div
+              className="rounded border text-[#0771D0] text-sm font-medium cursor-pointer mb-5 px-3 py-2 border-solid border-[#0771D0] hover:bg-[#0771D0] hover:text-white transition-colors w-fit"
+              onClick={() => window.history.back()}
+            >
+              Zurück zum Shop
             </div>
+            <h1 className="text-[#2D2D2D] text-2xl mb-5">
+              Bitte bewerte den Shop Computeruniverse.de
+            </h1>
             <RatingForm />
           </div>
         </MainLayout>
@@ -35,3 +33,4 @@ const Index = () => {
 };
 
 export default Index;
+
