@@ -20,7 +20,7 @@ const Index = () => {
           >
             Zurück zum Shop
           </div>
-          <div className="mt-5">
+          <div className="mt-5 max-w-[50%] mx-auto max-md:max-w-[70%] max-sm:max-w-full">
             <h1 className="text-[#2D2D2D] text-2xl mb-5">
               Bitte bewerte den Shop Computeruniverse.de
             </h1>
@@ -33,4 +33,3 @@ const Index = () => {
 };
 
 export default Index;
-
