@@ -10,11 +10,17 @@ interface UserInfoInputsProps {
     email: string;
     orderNumber: string;
   };
+  errors: {
+    name?: string;
+    email?: string;
+    orderNumber?: string;
+  };
 }
 
 export const UserInfoInputs: React.FC<UserInfoInputsProps> = ({
   onChange,
   values,
+  errors,
 }) => {
   const [emailTooltipOpen, setEmailTooltipOpen] = useState(false);
   const [orderTooltipOpen, setOrderTooltipOpen] = useState(false);
@@ -25,12 +31,14 @@ export const UserInfoInputs: React.FC<UserInfoInputsProps> = ({
         <input
           type="text"
           placeholder="Name oder Pseudonym (Wird veröffentlicht)"
-          className="w-full h-[50px] border rounded text-sm px-2.5 py-[15px] border-solid border-[#B4B4B4]"
+          className={`w-full h-[50px] border rounded text-sm px-2.5 py-[15px] border-solid ${
+            errors.name ? "border-red-500" : "border-[#B4B4B4]"
+          }`}
           value={values.name}
           onChange={(e) => onChange("name", e.target.value)}
         />
-        <div className="text-[#767676] text-xs mt-[5px]">
-          Der Name wird neben Deiner Bewertung angezeigt.
+        <div className={`text-xs mt-[5px] ${errors.name ? "text-red-500" : "text-[#767676]"}`}>
+          {errors.name || "Der Name wird neben Deiner Bewertung angezeigt."}
         </div>
       </div>
       <div className="mb-5">
@@ -38,7 +46,9 @@ export const UserInfoInputs: React.FC<UserInfoInputsProps> = ({
           <input
             type="email"
             placeholder="E-Mail Addresse (Wird nicht veröffentlicht)"
-            className="w-full h-[50px] border rounded text-sm px-2.5 py-[15px] border-solid border-[#B4B4B4]"
+            className={`w-full h-[50px] border rounded text-sm px-2.5 py-[15px] border-solid ${
+              errors.email ? "border-red-500" : "border-[#B4B4B4]"
+            }`}
             value={values.email}
             onChange={(e) => onChange("email", e.target.value)}
           />
@@ -59,13 +69,18 @@ export const UserInfoInputs: React.FC<UserInfoInputsProps> = ({
             </Tooltip>
           </div>
         </div>
+        {errors.email && (
+          <div className="text-red-500 text-xs mt-[5px]">{errors.email}</div>
+        )}
       </div>
       <div className="mb-5">
         <div className="relative flex items-center">
           <input
             type="text"
             placeholder="Kunden- oder Bestellnummer (Wird nicht veröffentlicht)"
-            className="w-full h-[50px] border rounded text-sm px-2.5 py-[15px] border-solid border-[#B4B4B4]"
+            className={`w-full h-[50px] border rounded text-sm px-2.5 py-[15px] border-solid ${
+              errors.orderNumber ? "border-red-500" : "border-[#B4B4B4]"
+            }`}
             value={values.orderNumber}
             onChange={(e) => onChange("orderNumber", e.target.value)}
           />
@@ -86,6 +101,9 @@ export const UserInfoInputs: React.FC<UserInfoInputsProps> = ({
             </Tooltip>
           </div>
         </div>
+        {errors.orderNumber && (
+          <div className="text-red-500 text-xs mt-[5px]">{errors.orderNumber}</div>
+        )}
       </div>
     </div>
   );
