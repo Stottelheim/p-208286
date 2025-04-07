@@ -1,3 +1,4 @@
+
 import js from "@eslint/js";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -24,6 +25,11 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "@typescript-eslint/no-unused-vars": "off",
+      "max-len": ["error", { "code": 100 }],
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"],
+      "no-console": "warn",
+      "indent": ["error", 2],
     },
   }
 );
