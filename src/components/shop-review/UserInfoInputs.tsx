@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { HelpCircle } from "lucide-react";
 
@@ -16,6 +16,9 @@ export const UserInfoInputs: React.FC<UserInfoInputsProps> = ({
   onChange,
   values,
 }) => {
+  const [emailTooltipOpen, setEmailTooltipOpen] = useState(false);
+  const [orderTooltipOpen, setOrderTooltipOpen] = useState(false);
+
   return (
     <div>
       <div className="mb-5">
@@ -40,9 +43,15 @@ export const UserInfoInputs: React.FC<UserInfoInputsProps> = ({
             onChange={(e) => onChange("email", e.target.value)}
           />
           <div className="absolute right-[10px]">
-            <Tooltip>
-              <TooltipTrigger>
-                <HelpCircle className="w-6 h-6 text-[#B4B4B4]" />
+            <Tooltip open={emailTooltipOpen} onOpenChange={setEmailTooltipOpen}>
+              <TooltipTrigger asChild>
+                <button 
+                  type="button" 
+                  onClick={() => setEmailTooltipOpen(!emailTooltipOpen)}
+                  className="bg-transparent border-0 cursor-pointer p-0"
+                >
+                  <HelpCircle className="w-6 h-6 text-[#B4B4B4]" />
+                </button>
               </TooltipTrigger>
               <TooltipContent className="max-w-[160px]">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -61,9 +70,15 @@ export const UserInfoInputs: React.FC<UserInfoInputsProps> = ({
             onChange={(e) => onChange("orderNumber", e.target.value)}
           />
           <div className="absolute right-[10px]">
-            <Tooltip>
-              <TooltipTrigger>
-                <HelpCircle className="w-6 h-6 text-[#B4B4B4]" />
+            <Tooltip open={orderTooltipOpen} onOpenChange={setOrderTooltipOpen}>
+              <TooltipTrigger asChild>
+                <button 
+                  type="button" 
+                  onClick={() => setOrderTooltipOpen(!orderTooltipOpen)}
+                  className="bg-transparent border-0 cursor-pointer p-0"
+                >
+                  <HelpCircle className="w-6 h-6 text-[#B4B4B4]" />
+                </button>
               </TooltipTrigger>
               <TooltipContent className="max-w-[160px]">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
